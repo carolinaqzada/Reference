@@ -1,0 +1,13 @@
+#Creating an array of numbers that satisfies certains conditions
+#Summing those numbers together 
+**reduce, push, for loop**
+
+function ooo (x) {
+  let mul = [];
+  for (let i=1; i < x; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      mul.push(i);
+    } 
+  }
+  return mul.reduce((a,b) => a + b) 
+}
