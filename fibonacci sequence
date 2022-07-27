@@ -1,0 +1,13 @@
+fibonacci sequence under a certain number(x)
+//start by declaring an array
+//fibonacci sequence formula is f(n) = f(n-1) + f(n-2). if n = 1, f(n) = -1 ((f(1) = f(1-1) + f(1-2) = -1))
+//f(n) = f(n-1) + f(n-2) only works for n => 2 only.
+
+
+function fib (x) {
+  let n = [0, 1];
+  for (let i = 2; i <= x; i++) {
+    n[i] = n[i-1] + n[i-2];
+    }
+return n;
+}
