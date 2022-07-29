@@ -1,0 +1,40 @@
+function xxx (x) {
+  let primes = [];
+  for (let i = 2; i <= x; i++) {
+		if ( x % i === 0) {
+      primes.push(i);
+      x = x/i
+  	}
+  }
+  return primes;
+}
+
+**pseudo-code**
+
+x = 105
+i = 2
+105 % 2 ≠≠≠ 0
+
+x = 105
+i = 3
+105 % 3 === 0
+105 / 3 = 35
+
+x = 35
+i = 4
+35 % 4 ≠≠≠ 0
+
+x = 35
+i = 5
+35 % 5 === 0
+35 / 5 = 7
+
+x = 7
+i = 6
+7 % 6 ≠≠≠ 0
+
+x = 7
+i = 7
+7 % 7 === 0
+7 / 7 = 1
+//here, i = x, so the program stops iterating 
