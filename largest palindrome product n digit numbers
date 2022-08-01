@@ -1,0 +1,49 @@
+//Problem: A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+// Find the largest palindrome made from the product of two 3-digit numbers.
+
+function largestPalindrome (digits) {
+
+  //here I am defining the largest and smallest number that can be multiplied to find the palindrome
+  //these functions are being called within the larger function
+  
+  function max (digits) {
+	let nine = '9'
+  return Number(nine.repeat (digits))
+}
+
+	function min (digits) {
+	let zero = '0'
+	return Number(`1${zero.repeat (digits-1)}`)
+}
+  
+  //here I am running a loop that  
+    //1. goes through every product combination between the min and max numbers
+    //2. splits the first half of the product
+    //3. splits the second half of the product and reverses it
+      //I am able to split and reverse the products by transforming them into strings
+    //4. only returns the values of the products whose first half is equal to the reversed second half
+    //5. pushes that loop onto an array
+  
+	let arr = [];
+	for (let i = max(digits); i >= min(digits); i--) {
+	for (let j = max(digits); j >= min(digits); j--) {
+			let half1 = (i*j).toString().slice(0, digits);
+			let half2 = (i*j).toString().slice(digits);
+			if (half1 === half2.split('').reverse().join('')) {
+			arr.push(i*j);
+			}
+	}
+  }
+  
+  //here, I am returning only the largest of the values. 
+  
+  return arr.sort((a,b) => b-a)[0];
+}
+
+largestPalindrome (3)
+
+//I think this program is useful because it can be replicated and used to find the smallest palindrome simply changing the sort order of the return value.
+//This program can be used with the product of two numbers with any digits
+
+Struggles:
+//I struggled to understand why this function didn't push the largest value first to the array automatically, since both i and j start at the max value. This is why I had to use the sort function in the end.
