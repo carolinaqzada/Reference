@@ -1,0 +1,1 @@
+allNums.filter(repeats => divs.indexOf(repeats) == divs.lastIndexOf(repeats))
